@@ -1,0 +1,23 @@
+{
+  "name": "classic-sorting",
+  "version": "0.0.2",
+  "description": "Top ten classical sorting algorithms",
+  "main": "sort.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint --fix sort.js test.js",
+    "test": "node test"
+  },
+  "keywords": [
+    "sort"
+  ],
+  "author": "junhao",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
