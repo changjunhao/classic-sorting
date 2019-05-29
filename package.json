@@ -1,6 +1,6 @@
 {
   "name": "classic-sorting",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Top ten classical sorting algorithms",
   "main": "sort.js",
   "scripts": {
