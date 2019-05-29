@@ -12,6 +12,7 @@ exports.bubbleSort = (arr) => {
   }
   return arr
 }
+
 exports.selectionSort = (arr) => {
   const len = arr.length
   let minIndex,
@@ -19,8 +20,8 @@ exports.selectionSort = (arr) => {
   for (let i = 0; i < len - 1; i++) {
     minIndex = i
     for (let j = i + 1; j < len; j++) {
-      if (arr[j] < arr[minIndex]) {     // 寻找最小的数
-        minIndex = j                  // 将最小数的索引保存
+      if (arr[j] < arr[minIndex]) { // 寻找最小的数
+        minIndex = j // 将最小数的索引保存
       }
     }
     temp = arr[i]
@@ -29,6 +30,7 @@ exports.selectionSort = (arr) => {
   }
   return arr
 }
+
 const insertionSort = (arr) => {
   const len = arr.length
   let preIndex,
@@ -45,11 +47,12 @@ const insertionSort = (arr) => {
   return arr
 }
 exports.insertionSort = insertionSort
+
 exports.shellSort = (arr) => {
   const len = arr.length
   let temp, j
   let gap = 1
-  while (gap < len / 3) {          // 动态定义间隔序列
+  while (gap < len / 3) { // 动态定义间隔序列
     gap = gap * 3 + 1
   }
   for (gap; gap > 0; gap = Math.floor(gap / 3)) {
@@ -63,6 +66,7 @@ exports.shellSort = (arr) => {
   }
   return arr
 }
+
 const merge = (left, right) => {
   const result = []
   while (left.length && right.length) {
@@ -76,7 +80,7 @@ const merge = (left, right) => {
   while (right.length) { result.push(right.shift()) }
   return result
 }
-const mergeSort = (arr) => {  // 采用自上而下的递归方法
+const mergeSort = (arr) => { // 采用自上而下的递归方法
   const len = arr.length
   if (len < 2) {
     return arr
@@ -87,13 +91,14 @@ const mergeSort = (arr) => {  // 采用自上而下的递归方法
   return merge(mergeSort(left), mergeSort(right))
 }
 exports.mergeSort = mergeSort
+
 const swap = (arr, i, j) => {
   const temp = arr[i]
   arr[i] = arr[j]
   arr[j] = temp
 }
-const partition = (arr, left, right) => {     // 分区操作
-  const pivot = left                      // 设定基准值（pivot）
+const partition = (arr, left, right) => { // 分区操作
+  const pivot = left // 设定基准值（pivot）
   let index = pivot + 1
   for (let i = index; i <= right; i++) {
     if (arr[i] < arr[pivot]) {
@@ -117,6 +122,7 @@ const quickSort = (arr, left, right) => {
   return arr
 }
 exports.quickSort = quickSort
+
 exports.radixSort = (arr, maxDigit) => {
   let mod = 10
   let dev = 1
@@ -141,6 +147,7 @@ exports.radixSort = (arr, maxDigit) => {
   }
   return arr
 }
+
 exports.bucketSort = (arr, bucketSize) => {
   if (arr.length === 0) {
     return arr
@@ -150,13 +157,13 @@ exports.bucketSort = (arr, bucketSize) => {
   let maxValue = arr[0]
   for (i = 1; i < arr.length; i++) {
     if (arr[i] < minValue) {
-      minValue = arr[i]                // 输入数据的最小值
+      minValue = arr[i] // 输入数据的最小值
     } else if (arr[i] > maxValue) {
-      maxValue = arr[i]                // 输入数据的最大值
+      maxValue = arr[i] // 输入数据的最大值
     }
   }
   // 桶的初始化
-  const DEFAULT_BUCKET_SIZE = 5            // 设置桶的默认数量为5
+  const DEFAULT_BUCKET_SIZE = 5 // 设置桶的默认数量为5
   bucketSize = bucketSize || DEFAULT_BUCKET_SIZE
   const bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1
   const buckets = new Array(bucketCount)
@@ -169,13 +176,14 @@ exports.bucketSort = (arr, bucketSize) => {
   }
   arr.length = 0
   for (i = 0; i < buckets.length; i++) {
-    insertionSort(buckets[i])                      // 对每个桶进行排序，这里使用了插入排序
+    insertionSort(buckets[i]) // 对每个桶进行排序，这里使用了插入排序
     for (let j = 0; j < buckets[i].length; j++) {
       arr.push(buckets[i][j])
     }
   }
   return arr
 }
+
 exports.countingSort = (arr, maxValue) => {
   const bucket = new Array(maxValue + 1)
   let sortedIndex = 0
@@ -196,14 +204,14 @@ exports.countingSort = (arr, maxValue) => {
   return arr
 }
 
-let len    // 因为声明的多个函数都需要数据长度，所以把len设置成为全局变量
-const buildMaxHeap = (arr) => {   // 建立大顶堆
+let len // 因为声明的多个函数都需要数据长度，所以把len设置成为全局变量
+const buildMaxHeap = (arr) => { // 建立大顶堆
   len = arr.length
   for (let i = Math.floor(len / 2); i >= 0; i--) {
     heapify(arr, i)
   }
 }
-const heapify = (arr, i) => {     // 堆调整
+const heapify = (arr, i) => { // 堆调整
   let left = 2 * i + 1
   let right = 2 * i + 2
   let largest = i
