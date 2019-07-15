@@ -212,8 +212,8 @@ const buildMaxHeap = (arr) => { // 建立大顶堆
   }
 }
 const heapify = (arr, i) => { // 堆调整
-  let left = 2 * i + 1
-  let right = 2 * i + 2
+  const left = 2 * i + 1
+  const right = 2 * i + 2
   let largest = i
   if (left < len && arr[left] > arr[largest]) {
     largest = left
