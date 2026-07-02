@@ -1,22 +1,44 @@
 {
   "name": "classic-sorting",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Top ten classical sorting algorithms",
-  "main": "sort.js",
+  "type": "module",
+  "main": "./dist/sort.cjs",
+  "types": "./dist/sort.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/sort.d.ts",
+      "import": "./dist/sort.js",
+      "require": "./dist/sort.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "lint": "./node_modules/.bin/eslint --fix sort.js test.js",
-    "test": "node test"
+    "build": "tsup && tsc --emitDeclarationOnly",
+    "dev": "vitest",
+    "lint": "eslint --fix src/ test/",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run lint && npm test && npm run build"
   },
   "keywords": [
     "sort"
   ],
   "author": "junhao",
   "license": "ISC",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0"
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1",
+    "vitest": "^4.1.9"
   }
 }
