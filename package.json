@@ -27,7 +27,7 @@
     "sort"
   ],
   "author": "junhao",
-  "license": "ISC",
+  "license": "MIT",
   "sideEffects": false,
   "engines": {
     "node": ">=18"
